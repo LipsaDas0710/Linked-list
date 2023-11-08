@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+struct node{
+    int data;
+    struct node*next ;
+};
+int main (){
+    struct node*start=NULL;
+    struct node*naya,*first,*ptr,*w,*b;
+    int n,a,d,c;
+    cout << "NO. OF NODES: ";
+    cin >> n;
+    cout<<"THE FIRST NODE: ";
+    cin>> a;
+    first=(struct node*)malloc(sizeof (struct node));
+    first->data=a;
+    first ->next=NULL;
+    start=first;
+    ptr=start;
+    for (int i=1;i<n;i++){
+        naya=(struct node*)malloc(sizeof (struct node));
+        cout << "ENTER THE DATA: ";
+        cin>>d;
+        naya->data=d;
+        naya->next=NULL;
+        ptr->next=naya;
+        ptr=ptr->next;
+    }
+    //insert at the end
+    b=(node*)malloc(sizeof(node));
+    cout << "ENTER THE DATA TO INSERT AT end: ";
+    cin>>c;
+    b->data=c;
+    b->next=NULL;
+    
+    if (start ==NULL){
+        start=b;
+    }
+    else{
+        w=start;
+        while (w->next!=NULL){
+        w=w->next;
+    }
+    w->next=b;
+    }
+    
+    cout<<"THE DATA YOU ENTERED "<<endl;
+    struct node*tr=start;                
+    while(tr!=NULL){
+        cout<<tr->data;
+        tr=tr->next;
+        cout << " ";
+    }
+
+}
